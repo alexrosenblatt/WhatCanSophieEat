@@ -3,7 +3,7 @@ But really - what <i>can</i> Sophie eat?  My partner has fructose sensitivity - 
 
 <b> Wrong! </b>
 
-She can have many raspberries! 
+She can have up to 61 raspberries! 
 
 This web app is a simple way to help her and her friends understand what foods a person with fructose sensitivity can eat! 
 
