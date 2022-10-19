@@ -1,0 +1,93 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+DEBUG:root:Search query: apple.
+INFO:werkzeug:127.0.0.1 - - [25/Jun/2022 17:31:38] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+ERROR:werkzeug:Error on request:
+Traceback (most recent call last):
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/werkzeug/serving.py", line 322, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/app.py", line 17, in update
+    search_object = callApi(search_query,False)
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 24, in __init__
+    self.return_nutrients()
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 31, in return_nutrients
+    c = self.call_cache()
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 108, in call_cache
+    cursor.execute("SELECT lower(raw) FROM Searches WHERE query = ? and (raw IS NOT NULL or raw != '{}') LIMIT 1",(sq,))
+sqlite3.OperationalError: no such table: Searches
+INFO:werkzeug:127.0.0.1 - - [25/Jun/2022 17:31:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jun/2022 17:31:55] "[36mGET /static/css/bulma.css HTTP/1.1[0m" 304 -
+DEBUG:root:Search query: apple\.
+INFO:werkzeug:127.0.0.1 - - [25/Jun/2022 17:32:00] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+ERROR:werkzeug:Error on request:
+Traceback (most recent call last):
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/werkzeug/serving.py", line 322, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/app.py", line 17, in update
+    search_object = callApi(search_query,False)
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 24, in __init__
+    self.return_nutrients()
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 31, in return_nutrients
+    c = self.call_cache()
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 108, in call_cache
+    cursor.execute("SELECT lower(raw) FROM Searches WHERE query = ? and (raw IS NOT NULL or raw != '{}') LIMIT 1",(sq,))
+sqlite3.OperationalError: no such table: Searches
+INFO:werkzeug:127.0.0.1 - - [25/Jun/2022 17:32:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jun/2022 17:32:35] "[36mGET /static/css/bulma.css HTTP/1.1[0m" 304 -
+DEBUG:root:Search query: apple.
+INFO:werkzeug:127.0.0.1 - - [25/Jun/2022 17:32:43] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+ERROR:werkzeug:Error on request:
+Traceback (most recent call last):
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/werkzeug/serving.py", line 322, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2095, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2080, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/alexrosenblatt/.local/share/virtualenvs/CanSophieEat-9KIhokaF/lib/python3.10/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/app.py", line 17, in update
+    search_object = callApi(search_query,False)
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 24, in __init__
+    self.return_nutrients()
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 31, in return_nutrients
+    c = self.call_cache()
+  File "/Users/alexrosenblatt/Documents/VSStudio Files/CanSophieEat/app/main.py", line 108, in call_cache
+    cursor.execute("SELECT lower(raw) FROM Searches WHERE query = ? and (raw IS NOT NULL or raw != '{}') LIMIT 1",(sq,))
+sqlite3.OperationalError: no such table: Searches
