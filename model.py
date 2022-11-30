@@ -3,8 +3,12 @@ import sqlite3
 import logging
 import requests  # type: ignore
 from typing import Union
+from decouple import config  # type: ignore
 
 logging.basicConfig(filename="mainlog.log", encoding="utf-8", level=logging.NOTSET)
+
+X_API_KEY = config("X_API_KEY")
+X_APP_KEY = config("X_APP_KEY")
 
 
 class IngredientNutrientResult:  # TODO should this be broken down in to subclasses?
@@ -52,7 +56,9 @@ class IngredientNutrientResult:  # TODO should this be broken down in to subclas
     def get_nutrient_raw_response(self) -> dict:
         """Main application logic to handle calling API or Cache and parsing response into nutrients. If "Demo" is set to true when CallAPI object created - a stubbed response is loaded, otherwise, it attempts to call the cache. If no matche exists, it queries the live API."""
         if not self.check_cache_for_match():
+            logging.debug("no cache match")
             response = self.get_nutrient_data_from_api()
+            logging.debug(f"result from api call{response}")
             return response
         else:
             response = self.get_nutrient_data_from_cache()
@@ -173,8 +179,8 @@ class IngredientNutrientResult:  # TODO should this be broken down in to subclas
             }
         )
         headers = {
-            "x-app-key": "",
-            "x-app-id": "",
+            "x-app-key": X_API_KEY,
+            "x-app-id": X_APP_KEY,
             "x-remote-user-id": "0",
             "Content-Type": "application/json",
         }
